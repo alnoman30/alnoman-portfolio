@@ -1,7 +1,14 @@
 body {
   transition: background-color 0.5s, color 0.5s;
+  user-select: none; /* Prevent text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
-
+::-webkit-scrollbar-track {
+  background: #ff0000;  /* Track color */
+  border-radius: 10px;
+}
 ul,li, a{
   text-decoration:  none;
   list-style: none;
