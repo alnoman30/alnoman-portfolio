@@ -1,11 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import ProfileCard from "../ProfileCard";
+import ProfileCard from "./ProfileCard";
 
 const Hero = () => {
   return (
     <section className="min-h-screen flex items-center py-20">
-      <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-0">
+      <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-4">
         
         {/* Left Section */}
         <motion.div
@@ -48,14 +48,14 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-purple-700 to-blue-600 text-white px-6 py-3 rounded-md shadow-md"
+              className="bg-gradient-to-r from-purple-700 to-blue-600 text-white px-6 py-3 rounded-md shadow-md cursor-pointer"
             >
               Get in Touch
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="border border-gray-400 text-gray-700 px-6 py-3 rounded-md"
+              className="border border-gray-400 text-gray-700 px-6 py-3 rounded-md cursor-pointer"
             >
               View Projects
             </motion.button>

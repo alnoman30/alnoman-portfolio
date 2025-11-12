@@ -29,7 +29,7 @@ const Navbar = () => {
   }, []);
 
   const menuItems = [
-    { id: "home", label: "Home" },
+    { id: "navbar", label: "Home" },
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
@@ -38,7 +38,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav
+    <nav id="navbar"
       className={`fixed w-full top-0 left-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-background/80 backdrop-blur-md"
