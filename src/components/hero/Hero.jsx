@@ -9,7 +9,7 @@ const Hero = () => {
         
         {/* Left Section */}
         <motion.div
-          className="text-center md:text-left max-w-xl"
+          className="text-left max-w-xl"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -25,7 +25,7 @@ const Hero = () => {
           </motion.span>
 
           {/* Heading */}
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4 leading-snug">
+          <h1 className="text-4xl md:text-7xl font-bold text-gray-800 mb-4 leading-snug dark:text-white">
             Hi, I'm{" "}
             <span className="bg-gradient-to-r from-purple-600 to-blue-500 text-transparent bg-clip-text">
               Noman
@@ -33,12 +33,12 @@ const Hero = () => {
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg text-gray-600 mb-6 font-medium">
+          <p className="text-xl md:text-2xl text-gray-600 mb-6 font-medium">
             FullStack Developer specializing in MERN stack
           </p>
 
           {/* Description */}
-          <p className="text-gray-500 mb-8">
+          <p className="text-gray-500 mb-8 text-lg md:text-xl">
             I build modern, responsive web applications with a focus on user
             experience and performance.
           </p>
@@ -55,7 +55,7 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="border border-gray-400 text-gray-700 px-6 py-3 rounded-md cursor-pointer"
+              className="border border-gray-400 text-gray-700 px-6 py-3 rounded-md cursor-pointer dark:text-white dark:border-white"
             >
               View Projects
             </motion.button>

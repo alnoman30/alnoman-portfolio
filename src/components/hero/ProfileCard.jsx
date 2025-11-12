@@ -34,13 +34,13 @@ const ProfileCard = () => {
         <img
           src={profileImg}
           alt="Profile"
-          className="w-[400px] h-[400px] sm:w-[350px] sm:h-[350px] object-cover rounded-full  shadow-2xl"
+          className="w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] object-cover rounded-full shadow-2xl"
         />
       </motion.div>
 
-      {/* Labels - Positioned for bigger design */}
+      {/* Labels - Responsive & Bouncing */}
       <motion.div
-        className="absolute left-0 sm:-left-32 top-1/3 bg-white px-5 py-2 rounded-full shadow-lg text-gray-700 font-semibold text-lg sm:text-xl border-2 border-purple-400"
+        className="absolute left-0 sm:-left-32 top-1/3 bg-white px-3 sm:px-5 py-1 sm:py-2 rounded-full shadow-lg text-gray-700 font-semibold text-sm sm:text-lg md:text-xl border-2 border-purple-400"
         animate={{ y: [0, -12, 0] }}
         transition={bounceTransition}
       >
@@ -48,7 +48,7 @@ const ProfileCard = () => {
       </motion.div>
 
       <motion.div
-        className="absolute top-0 sm:-top-12 right-0 bg-white px-5 py-2 rounded-full shadow-lg text-gray-700 font-semibold text-lg sm:text-xl border-2 border-purple-400"
+        className="absolute top-0 sm:-top-12 right-0 bg-white px-3 sm:px-5 py-1 sm:py-2 rounded-full shadow-lg text-gray-700 font-semibold text-sm sm:text-lg md:text-xl border-2 border-purple-400"
         animate={{ y: [0, -14, 0] }}
         transition={{ ...bounceTransition, delay: 0.3 }}
       >
@@ -56,7 +56,7 @@ const ProfileCard = () => {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-0 sm:-bottom-12 right-12 bg-white px-5 py-2 rounded-full shadow-lg text-gray-700 font-semibold border-2 border-purple-400 text-lg sm:text-xl"
+        className="absolute bottom-0 sm:-bottom-12 right-12 bg-white px-3 sm:px-5 py-1 sm:py-2 rounded-full shadow-lg text-gray-700 font-semibold text-sm sm:text-lg md:text-xl border-2 border-purple-400"
         animate={{ y: [0, -16, 0] }}
         transition={{ ...bounceTransition, delay: 0.6 }}
       >
