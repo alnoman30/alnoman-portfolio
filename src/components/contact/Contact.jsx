@@ -29,7 +29,7 @@ const Contact = () => {
 
           {/* Contact Card */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-white  rounded-2xl shadow-md p-8 w-[90%]">
+            <div className="bg-white dark:bg-[#1c1528] rounded-2xl shadow-md p-8 w-[90%]">
               <h3 className="text-xl font-semibold text-gray-800 mb-3">
                 Contact Information
               </h3>
@@ -46,10 +46,10 @@ const Contact = () => {
                   <div>
                     <p className="text-gray-700 text-sm font-medium">Email</p>
                     <a
-                      href="mailto:shiddhartpal01355@gmail.com"
+                      href="mailto:alnomaan30@gmail.com"
                       className="text-purple-600 text-sm hover:underline"
                     >
-                      shiddhartpal01355@gmail.com
+                      alnomaan30@gmail.com
                     </a>
                   </div>
                 </div>
@@ -61,10 +61,10 @@ const Contact = () => {
                   <div>
                     <p className="text-gray-700 text-sm font-medium">Phone</p>
                     <a
-                      href="tel:+8801860680768"
+                      href="tel:+8801741619995"
                       className="text-purple-600 text-sm hover:underline"
                     >
-                      +8801860680768
+                      +8801741619995
                     </a>
                   </div>
                 </div>
@@ -76,7 +76,7 @@ const Contact = () => {
                   <div>
                     <p className="text-gray-700 text-sm font-medium">Location</p>
                     <p className="text-purple-600 text-sm">
-                      Bagerhat, Bangladesh
+                      Dhaka, Bangladesh
                     </p>
                   </div>
                 </div>
@@ -113,7 +113,7 @@ const Contact = () => {
         </div>
 
         {/* Right Side - Contact Form */}
-        <div className="bg-white rounded-2xl shadow-md p-10">
+        <div className="bg-white dark:bg-[#1c1528] rounded-2xl shadow-md p-10">
           <h3 className="text-2xl font-semibold text-gray-800 mb-6">
             Send a Message
           </h3>
