@@ -19,7 +19,7 @@ const Navbar = () => {
     document.body.classList.toggle("bg-white", !darkMode);
   }, [darkMode]);
 
-  // Scroll listener
+  // Scroll listener (optional, for shadow on scroll)
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -38,14 +38,13 @@ const Navbar = () => {
   ];
 
   return (
-    <nav id="navbar"
-      className={`fixed w-full top-0 left-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-md"
-          : "bg-transparent shadow-none"
+    <nav
+      id="navbar"
+      className={`fixed w-full top-0 left-0 z-50 bg-background/80 backdrop-blur-md  transition-all duration-500 ${
+        scrolled ? "shadow-md" : "shadow-none"
       }`}
     >
-      <div className="container mx-auto py-4 flex justify-between items-center transition-colors duration-500 px-4">
+      <div className="container mx-auto py-4 flex justify-between items-center px-4">
         {/* Logo */}
         <div>
           <p className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent cursor-pointer">
@@ -55,7 +54,7 @@ const Navbar = () => {
 
         {/* Desktop / Tablet Menu */}
         <div className="hidden md:flex items-center gap-6">
-          <ul className="flex flex-row gap-6 font-medium text-lg transition-colors duration-500">
+          <ul className="flex flex-row gap-6 font-medium text-lg">
             {menuItems.map((item, index) => (
               <li key={index}>
                 <Link
@@ -109,7 +108,8 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-background/80 backdrop-blur-md w-full absolute top-full left-0 px-4 py-6 flex flex-col gap-6">
+        <div className="md:hidden absolute top-full left-0 w-full px-4 py-6 flex flex-col gap-6
+                        bg-white dark:bg-gray-900 backdrop-blur-md">
           <ul className="flex flex-col gap-4 font-medium text-lg">
             {menuItems.map((item, index) => (
               <li key={index}>
@@ -121,7 +121,7 @@ const Navbar = () => {
                   spy={true}
                   activeClass="text-purple-500 font-bold"
                   className="cursor-pointer text-gray-700 dark:text-white hover:text-purple-500 transition duration-300"
-                  onClick={() => setMenuOpen(false)} // close menu on click
+                  onClick={() => setMenuOpen(false)}
                 >
                   {item.label}
                 </Link>

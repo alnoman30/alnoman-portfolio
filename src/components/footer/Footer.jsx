@@ -5,7 +5,9 @@ import { FaRegEnvelope } from "react-icons/fa";
 import { IoCallOutline } from "react-icons/io5";
 import { HiOutlineEnvelope } from "react-icons/hi2";
 import { MdOutlineLocationOn } from "react-icons/md";
+import { FiArrowUp } from "react-icons/fi";
 import { motion } from "framer-motion";
+import ScrollToTopBtn from "../scrollToTop/ScrollToTopBtn";
 
 const Footer = () => {
   // Animation variants for sections
@@ -20,7 +22,9 @@ const Footer = () => {
 
   return (
     <footer className="text-gray-700 pt-16 pb-6" id="contact">
-      <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-40">
+      <ScrollToTopBtn/>
+
+      <div className="container mx-auto px-4  grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-40">
         {/* Left Section */}
         <motion.div
           variants={sectionVariants}
@@ -51,23 +55,28 @@ const Footer = () => {
             Quick Links
           </h3>
           <ul className="space-y-2 text-gray-600">
-            {["home", "about", "skills", "projects", "experience", "contact"].map(
-              (link, index) => (
-                <motion.li
-                  key={link}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
+            {[
+              "home",
+              "about",
+              "skills",
+              "projects",
+              "experience",
+              "contact",
+            ].map((link, index) => (
+              <motion.li
+                key={link}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+              >
+                <a
+                  href={`#${link}`}
+                  className="text-[hsl(261,7%,46%)] dark:text-[hsl(261,15%,70%)] hover:text-[hsl(251,85%,75%)] hover:pl-1.5 font-medium transition-all duration-300 capitalize"
                 >
-                  <a
-                    href={`#${link}`}
-                    className="text-[hsl(261,7%,46%)] dark:text-[hsl(261,15%,70%)] hover:text-[hsl(251,85%,75%)] hover:pl-1.5 font-medium transition-all duration-300 capitalize"
-                  >
-                    {link}
-                  </a>
-                </motion.li>
-              )
-            )}
+                  {link}
+                </a>
+              </motion.li>
+            ))}
           </ul>
         </motion.div>
 
@@ -88,11 +97,17 @@ const Footer = () => {
               +8801741619995
             </li>
             <li className="flex items-center gap-2">
-              <HiOutlineEnvelope size={20} className="font-bold text-violet-500" />{" "}
+              <HiOutlineEnvelope
+                size={20}
+                className="font-bold text-violet-500"
+              />{" "}
               alnomaan30@gmail.com
             </li>
             <li className="flex items-center gap-2">
-              <MdOutlineLocationOn size={20} className="font-bold text-violet-500" />{" "}
+              <MdOutlineLocationOn
+                size={20}
+                className="font-bold text-violet-500"
+              />{" "}
               Dhaka, Bangladesh
             </li>
           </ul>
@@ -105,7 +120,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            {[ 
+            {[
               { icon: <RiGithubLine />, href: "https://github.com/alnoman30" },
               {
                 icon: <FiLinkedin />,

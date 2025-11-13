@@ -14,7 +14,9 @@ function App() {
       <Navbar/>
       <Hero/>
       <About/>
-      <Footer/>
+      <div className='mt-[400px]'>
+        <Footer/>
+      </div>
     </div>
   )
 }
