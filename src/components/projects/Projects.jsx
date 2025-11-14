@@ -31,24 +31,46 @@ const Projects = () => {
         border border-white/30
         shadow-[0_4px_30px_rgba(0,0,0,0.1)]
         p-5
-        h-[450px]
+        h-[350px]
+        group
       "
     >
-      {/* Inner div to control image overflow */}
-      <div className="w-full h-full rounded-[15px] overflow-hidden">
+      {/* Image Wrapper */}
+      <div className="relative w-full h-full rounded-[15px] overflow-hidden bg-black/20">
+        
+        {/* IMAGE — FULLY VISIBLE, NO CROP */}
         <img
           src={project.image}
           alt={project.title}
           className="
-            w-full h-full object-cover
+            w-full h-full
+            object-fit
             transition-transform duration-700
-            hover:scale-150
+            group-hover:scale-110
           "
         />
+
+{/* CENTER GLASS OVERLAY */}
+<div className="absolute left-1/2 -translate-x-1/2 bottom-5 w-[90%]">
+  <div
+    className="
+      bg-white/20 backdrop-blur-lg border border-white/30 shadow-lg
+      px-6 py-4 rounded-2xl text-white text-center
+      opacity-100
+      transition-opacity duration-300
+    "
+  >
+    <h3 className="text-lg font-semibold text-black">{project.title}</h3>
+    <p className="text-sm mt-1">{project.subtitle || "View Details"}</p>
+  </div>
+</div>
+
+
       </div>
     </div>
   ))}
 </div>
+
 
 
 
