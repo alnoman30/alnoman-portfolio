@@ -21,7 +21,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="text-gray-700 pt-16 pb-6" id="contact">
+    <footer className="text-gray-700 pt-16 pb-6" id="footer">
       <ScrollToTopBtn/>
 
       <div className="container mx-auto px-4  grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-40">

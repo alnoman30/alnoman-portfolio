@@ -128,7 +128,7 @@ const Contact = () => {
         </div>
 
         {/* Right Side - Contact Form */}
-        <div className="bg-white dark:bg-[#1c1528] rounded-2xl shadow-md p-10">
+        <div className="bg-white dark:bg-[#1c1528] rounded-2xl shadow-md p-10 mt-20 md:mt-0">
           <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">
             Send a Message
           </h3>
@@ -179,12 +179,14 @@ const Contact = () => {
               ></textarea>
             </div>
 
-            <button
+            <motion.button
+            whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               type="submit"
-              className="bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 text-white font-semibold px-6 py-3 rounded-md transition-all"
+              className="bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 cursor-pointer hover:to-blue-700 text-white font-semibold px-6 py-3 rounded-md transition-all"
             >
               Send Message
-            </button>
+            </motion.button>
           </form>
         </div>
       </div>
