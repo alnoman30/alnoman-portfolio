@@ -30,7 +30,7 @@ const Contact = () => {
       </div>
 
       {/* Contact Section */}
-      <div className="px-6 grid md:grid-cols-2 gap-10 items-center">
+      <div className="px-6 grid md:grid-cols-2 gap-10 items-center container mx-auto">
         {/* Left Side */}
         <div className="flex flex-col justify-center relative">
           <div className="bg-gradient-to-b from-blue-400 to-purple-500 h-72 w-full rounded-2xl shadow-lg"></div>
