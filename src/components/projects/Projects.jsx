@@ -24,7 +24,7 @@ const Projects = () => {
         {projects.map((project) => (
           <div
             key={project.id}
-            className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition"
+            className="bg-white dark:bg-violet-400 rounded-xl shadow-md overflow-hidden border border-gray-200 dark:border-violet-400 hover:shadow-lg transition"
           >
             {/* Image */}
             <img
@@ -35,7 +35,7 @@ const Projects = () => {
 
             {/* Content */}
             <div className="p-6">
-              <p className="text-xs text-gray-400 tracking-widest mb-2">
+              <p className="text-xs text-gray-400 dark:text-white tracking-widest mb-2">
                 {project.category}
               </p>
               <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
@@ -44,22 +44,32 @@ const Projects = () => {
               </p>
 
               {/* Buttons */}
-              <div className="flex gap-3">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  className="flex items-center px-4 py-2 text-sm font-medium border rounded-lg hover:bg-gray-100 transition"
-                >
-                  <FiGithub className="mr-2" /> View Code
-                </a>
-                <a
-                  href={project.preview}
-                  target="_blank"
-                  className="flex items-center px-4 py-2 text-sm font-medium bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
-                >
-                  <IoEyeOutline className="mr-2" /> Preview
-                </a>
-              </div>
+<div className="flex gap-3">
+  {/* GitHub Button */}
+  <a
+    href={project.github}
+    target="_blank"
+    className="flex items-center px-4 py-2 text-sm font-medium 
+               border border-violet-500 text-violet-500 rounded-lg 
+               hover:bg-violet-500 hover:text-white hover:border-violet-500 dark:text-black
+               transition"
+  >
+    <FiGithub className="mr-2" /> View Code
+  </a>
+
+  {/* Preview Button */}
+  <a
+    href={project.preview}
+    target="_blank"
+    className="flex items-center px-4 py-2 text-sm font-medium 
+               bg-violet-500 text-white border border-violet-500 rounded-lg
+               hover:bg-transparent hover:text-violet-500 hover:border-violet-500
+               transition"
+  >
+    <IoEyeOutline className="mr-2" /> Preview
+  </a>
+</div>
+
             </div>
           </div>
         ))}

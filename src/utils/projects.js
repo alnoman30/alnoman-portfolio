@@ -11,8 +11,8 @@ const projects = [
     description:
       "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
     image: project1,
-    github: "https://github.com/example/project1",
-    preview: "https://example.com/project1",
+    github: "https://github.com/alnoman30/ReactJS---Panto-landing-page-design",
+    preview: "https://alnoman-panto-design.vercel.app/",
   },
   {
     id: 2,
