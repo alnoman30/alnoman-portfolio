@@ -24,6 +24,16 @@ const projects = [
     github: "https://github.com/example/project1",
     preview: "https://example.com/project1",
   },
+  {
+    id: 3,
+    category: "Restaurant",
+    title: "RainyRoof Restaurant & Cafe",
+    description:
+      "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
+    image: project2,
+    github: "https://github.com/example/project1",
+    preview: "https://example.com/project1",
+  },
 ];
 
 
