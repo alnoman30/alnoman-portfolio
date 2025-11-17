@@ -1,9 +1,25 @@
 import React from "react";
 import projects from "../../utils/projects";
+import { FiGithub } from "react-icons/fi";
+import { motion } from "framer-motion";
+import { IoEyeOutline } from "react-icons/io5";
 
 const Projects = () => {
   return (
-    <section className="py-20 container mx-auto px-6">
+    <section className="py-20 container mx-auto px-6" id="projects">
+      {/* Header Section */}
+      <div className="text-center max-w-2xl mx-auto mb-30 md:mb-12">
+        <h2 className="text-4xl text-gray-700 dark:text-[hsl(0,0%,96%)] font-bold mb-4">
+          My{" "}
+          <span className="bg-gradient-to-r from-purple-600 to-blue-500 text-transparent bg-clip-text inline-block">
+            Projects
+          </span>
+        </h2>
+        <p className="text-gray-600 dark:text-[hsl(261,15%,70%)] text-lg max-w-2xl mx-auto">
+          Explore my recent web development projects showcasing my expertise in
+          the MERN stack and project management.
+        </p>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project) => (
           <div
@@ -32,16 +48,16 @@ const Projects = () => {
                 <a
                   href={project.github}
                   target="_blank"
-                  className="px-4 py-2 text-sm font-medium border rounded-lg hover:bg-gray-100 transition"
+                  className="flex items-center px-4 py-2 text-sm font-medium border rounded-lg hover:bg-gray-100 transition"
                 >
-                  GitHub
+                  <FiGithub className="mr-2" /> View Code
                 </a>
                 <a
                   href={project.preview}
                   target="_blank"
-                  className="px-4 py-2 text-sm font-medium bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
+                  className="flex items-center px-4 py-2 text-sm font-medium bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
                 >
-                  Preview
+                  <IoEyeOutline className="mr-2" /> Preview
                 </a>
               </div>
             </div>
@@ -51,9 +67,14 @@ const Projects = () => {
 
       {/* More Project Button */}
       <div className="text-center mt-12">
-        <button className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          type="submit"
+          className="bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 cursor-pointer hover:to-blue-700 text-white font-semibold px-6 py-3 rounded-md transition-all"
+        >
           More Projects
-        </button>
+        </motion.button>
       </div>
     </section>
   );
