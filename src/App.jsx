@@ -8,6 +8,7 @@ import Footer from './components/footer/Footer'
 import Hero from './components/hero/Hero'
 import Navbar from './components/navbar/Navbar'
 import Projects from './components/projects/Projects'
+import SkillGrid from './components/skills/SkillGrid'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <Navbar/>
       <Hero/>
       <About/>
+      <SkillGrid/>
       <Projects/>
       <Experience/>
       <Contact/>
