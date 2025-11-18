@@ -36,11 +36,11 @@ const Contact = () => {
           <div className="bg-gradient-to-b from-blue-400 to-purple-500 h-72 w-full rounded-2xl shadow-lg"></div>
 
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-white dark:bg-[#1c1528] rounded-2xl shadow-md p-8 w-[90%]">
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">
+            <div className="bg-white dark:bg-violet-400 rounded-2xl shadow-md p-8 w-[90%]">
+              <h3 className="text-xl font-semibold text-gray-800  mb-3">
                 Contact Information
               </h3>
-              <p className="text-gray-600 mb-6 dark:text-[hsl(261,15%,70%)]">
+              <p className="text-gray-600 mb-6 dark:text-white">
                 Feel free to reach out for opportunities, collaborations, or
                 just to say hi! I'm always open to discussing new projects and
                 ideas.
@@ -79,12 +79,12 @@ const Contact = () => {
                       {item.href ? (
                         <a
                           href={item.href}
-                          className="text-violet-400 text-sm hover:underline dark:text-[hsl(261,15%,70%)]"
+                          className="text-violet-400 text-sm hover:underline dark:text-black"
                         >
                           {item.value}
                         </a>
                       ) : (
-                        <p className="text-violet-400 text-sm dark:text-[hsl(261,15%,70%)]">
+                        <p className="text-violet-400 text-sm dark:text-black">
                           {item.value}
                         </p>
                       )}
@@ -128,8 +128,8 @@ const Contact = () => {
         </div>
 
         {/* Right Side - Contact Form */}
-        <div className="bg-white dark:bg-[#1c1528] rounded-2xl shadow-md p-10 mt-20 md:mt-0">
-          <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">
+        <div className="bg-white dark:bg-violet-400 rounded-2xl shadow-md p-10 mt-20 md:mt-0">
+          <h3 className="text-2xl font-semibold text-gray-800  mb-6">
             Send a Message
           </h3>
 

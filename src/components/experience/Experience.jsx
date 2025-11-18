@@ -24,7 +24,7 @@ export default function Experience({ className = "" }) {
       <div className="grid md:grid-cols-2 gap-8">
         {/* Experience Column */}
         <div>
-          <h3 className="text-xl font-medium mb-4">Experience</h3>
+          <h3 className="text-xl font-medium mb-4 dark:text-white">Experience</h3>
           {/* timeline container - vertical side border */}
           <div className="relative pl-8">
             {/* vertical line */}
@@ -33,11 +33,11 @@ export default function Experience({ className = "" }) {
             {experiences.map((exp, idx) => (
               <div key={exp.id} className="relative mb-8">
                 {/* dot */}
-                <span className="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-violet-600 ring-4 ring-white" />
+                <span className="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-violet-600 ring-4 ring-purple-200" />
 
                 <div className="pl-6">
                   <div className="flex items-baseline justify-between">
-                    <h4 className="text-lg font-semibold">{exp.title}</h4>
+                    <h4 className="text-lg font-semibold dark:text-white">{exp.title}</h4>
                     <span className="text-sm text-gray-500">{exp.period}</span>
                   </div>
                   <div className="text-sm text-gray-600">{exp.org}</div>
@@ -50,21 +50,21 @@ export default function Experience({ className = "" }) {
 
         {/* Education Column */}
         <div>
-          <h3 className="text-xl font-medium mb-4">Education</h3>
+          <h3 className="text-xl font-medium mb-4 dark:text-white">Education</h3>
 
           <div className="relative pl-8">
             <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-gray-300" />
 
             {educations.map((edu) => (
               <div key={edu.id} className="relative mb-8">
-                <span className="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-green-500 ring-4 ring-white" />
+                <span className="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-red-300 ring-4 ring-purple-200" />
 
                 <div className="pl-6">
                   <div className="flex items-baseline justify-between">
-                    <h4 className="text-lg font-semibold">{edu.degree}</h4>
+                    <h4 className="text-lg font-semibold dark:text-white">{edu.degree}</h4>
                     <span className="text-sm text-gray-500">{edu.period}</span>
                   </div>
-                  <div className="text-sm text-gray-600">{edu.school}</div>
+                  <div className="text-sm  text-gray-600">{edu.school}</div>
                   <p className="mt-2 text-gray-700 text-sm">{edu.details}</p>
                 </div>
               </div>
@@ -73,21 +73,20 @@ export default function Experience({ className = "" }) {
         </div>
         {/* Curricular Activities Column */}
         <div>
-          <h3 className="text-xl font-medium mb-4">Curricular Activities</h3>
+          <h3 className="text-xl font-medium mb-4 dark:text-white">Curricular Activities</h3>
 
           <div className="relative pl-8">
             <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-gray-300" />
 
             {activities.map((act) => (
               <div key={act.id} className="relative mb-8">
-                <span className="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-white" />
+                <span className="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-purple-200" />
 
                 <div className="pl-6">
                   <div className="flex items-baseline justify-between">
-                    <h4 className="text-lg font-semibold">{act.activity}</h4>
+                    <h4 className="text-lg font-semibold dark:text-white">{act.activity}</h4>
                     <span className="text-sm text-gray-500">{act.period}</span>
                   </div>
-                  <div className="text-sm text-gray-600">{act.place}</div>
                   <p className="mt-2 text-gray-700 text-sm">{act.details}</p>
                 </div>
               </div>

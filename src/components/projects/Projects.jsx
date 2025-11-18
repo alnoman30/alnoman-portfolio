@@ -35,10 +35,10 @@ const Projects = () => {
 
             {/* Content */}
             <div className="p-6">
-              <p className="text-xs text-gray-400 dark:text-white tracking-widest mb-2">
+              <p className="text-xs text-gray-400 dark:text-black tracking-widest mb-2">
                 {project.category}
               </p>
-              <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
+              <h3 className="text-lg font-semibold mb-2 dark:text-white">{project.title}</h3>
               <p className="text-gray-600 text-sm mb-4">
                 {project.description}
               </p>
