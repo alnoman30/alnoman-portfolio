@@ -21,9 +21,20 @@ export default function SkillGrid() {
       : skills.filter((skill) => skill.category === active);
 
   return (
-    <section className="py-16 bg-[#071D3B]" id="skills">
+    <section className="py-16 min-h-[600px] bg-[#071D3B]" id="skills">
       <div className="container mx-auto px-6">
-
+        {/* Header Section */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-4xl text-white font-bold mb-4">
+            My{" "}
+            <span className="bg-gradient-to-r from-purple-600 to-blue-500 text-transparent bg-clip-text inline-block">
+              Skills
+            </span>
+          </h2>
+          <p className="text-[hsl(261,15%,70%)] text-lg max-w-2xl mx-auto">
+            I've worked with a range of technologies in the web development world, from back-end to front-end and project management.
+          </p>
+        </div>
         {/* Tabs */}
         <div className="flex flex-wrap gap-3 justify-center mb-12">
           {tabs.map((tab) => (
@@ -61,7 +72,7 @@ export default function SkillGrid() {
               <span
                 className="
                   pointer-events-none absolute inset-0
-                  bg-gradient-to-r from-transparent via-white/40 to-transparent
+                  bg-gradient-to-r from-transparent via-white/20 to-transparent
                   translate-x-[-200%]
                   group-hover:translate-x-[200%]
                   transition-transform duration-1000 ease-out

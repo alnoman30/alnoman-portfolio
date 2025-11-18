@@ -1,7 +1,7 @@
 import React from "react";
 import { experiences, educations, activities } from "../../utils/data";
 
-export default function Experience({ className = "bg-[#F4F0F9] dark:bg-[#20192E] transition-all duration-500" }) {
+export default function Experience({ className = "bg-[#071D3B] transition-all duration-500" }) {
   return (
     <section
       className={`w-full py-12 ${className}`} // full width background
@@ -10,13 +10,13 @@ export default function Experience({ className = "bg-[#F4F0F9] dark:bg-[#20192E]
       <div className="container mx-auto px-6">
         {/* Header Section */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-4xl text-gray-700 dark:text-[hsl(0,0%,96%)] font-bold mb-4">
+          <h2 className="text-4xl text-white font-bold mb-4">
             Experience &{" "}
             <span className="bg-gradient-to-r from-purple-600 to-blue-500 text-transparent bg-clip-text inline-block">
               Education
             </span>
           </h2>
-          <p className="text-gray-600 dark:text-[hsl(261,15%,70%)] text-lg max-w-2xl mx-auto">
+          <p className="text-[hsl(261,15%,70%)] text-lg max-w-2xl mx-auto">
             My professional journey and educational background that have shaped my career in web development and project management.
           </p>
         </div>
