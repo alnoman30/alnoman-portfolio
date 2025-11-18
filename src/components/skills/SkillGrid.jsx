@@ -21,7 +21,7 @@ export default function SkillGrid() {
       : skills.filter((skill) => skill.category === active);
 
   return (
-    <section className="py-16" id="skills">
+    <section className="py-16 bg-[#071D3B]" id="skills">
       <div className="container mx-auto px-6">
 
         {/* Tabs */}
@@ -47,16 +47,33 @@ export default function SkillGrid() {
           {filteredSkills.map((skill, index) => (
             <div
               key={`${skill.name}-${index}`}
-              className="backdrop-blur-md bg-white/40 border border-white/60 rounded-xl
-                         p-8 flex flex-col items-center shadow-sm transition 
-                         hover:scale-[1.05] hover:shadow-xl hover:border-violet-300"
+              className="
+                group relative overflow-hidden
+                rounded-xl p-8 flex flex-col items-center transition 
+                hover:scale-[1.05] hover:shadow-xl
+
+                bg-white/10 backdrop-blur-lg 
+                border border-white/20 
+                shadow-[0_0_25px_-5px_rgba(255,255,255,0.2)]
+              "
             >
+              {/* Shine animation */}
+              <span
+                className="
+                  pointer-events-none absolute inset-0
+                  bg-gradient-to-r from-transparent via-white/40 to-transparent
+                  translate-x-[-200%]
+                  group-hover:translate-x-[200%]
+                  transition-transform duration-1000 ease-out
+                "
+              ></span>
+
               <img
                 src={skill.icon}
                 alt={skill.name}
-                className="w-14 h-14 mb-4 object-contain"
+                className="w-14 h-14 mb-4 object-contain z-10"
               />
-              <p className="font-semibold text-gray-900">{skill.name}</p>
+              <p className="font-semibold text-white z-10">{skill.name}</p>
             </div>
           ))}
         </div>
