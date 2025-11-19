@@ -2,14 +2,58 @@ import { useState } from "react";
 
 // Import images
 import reactImg from "../../assets/react.png";
+import jsImg from "../../assets/javascript.png";
+import mongoImg from "../../assets/mongodb.svg";
+import htmlImg from "../../assets/html.png";
+import cssImg from "../../assets/css.png";
+import bootstrapImg from "../../assets/bootstrap.png";
+import nodeImg from "../../assets/node.png";
+import pythonImg from "../../assets/python.png";
+import laravelImg from "../../assets/laravel.png";
+import gitImg from "../../assets/git.png";
+import githubImg from "../../assets/github.png";
+
+
+import postmanImg from "../../assets/postman.svg";
+import vscodeImg from "../../assets/vscode.svg";
+import awsImg from "../../assets/aws.svg";
+import netlifyImg from "../../assets/netlify.svg";
+import solvingImg from "../../assets/solving.svg";
+import teamImg from "../../assets/team.svg";
+import communicationImg from "../../assets/communication.svg";
+import learningImg from "../../assets/learning.svg";
+
+
+
+import tailwindImg from "../../assets/tailwind.png";
+import framerImg from "../../assets/framer.png";
+import mysqlImg from "../../assets/mysql.png";
 
 const tabs = ["All", "Frontend", "Backend", "Tools", "Soft Skills"];
 
 const skills = [
   { name: "React", category: "Frontend", icon: reactImg },
-  { name: "React", category: "Frontend", icon: reactImg },
-  { name: "React", category: "Frontend", icon: reactImg },
-  { name: "React", category: "Frontend", icon: reactImg },
+  { name: "Javascript", category: "Frontend", icon: jsImg },
+  { name: "MongoDB", category: "Backend", icon: mongoImg },
+  { name: "Node JS", category: "Backend", icon: nodeImg },
+  { name: "Python", category: "Backend", icon: pythonImg },
+  { name: "HTML", category: "Frontend", icon: htmlImg },
+  { name: "CSS", category: "Frontend", icon: cssImg },
+  { name: "Bootstrap", category: "Frontend", icon: bootstrapImg },
+  { name: "Laravel", category: "Backend", icon: laravelImg },
+  { name: "Git", category: "Tools", icon: gitImg },
+  { name: "Github", category: "Tools", icon: githubImg },
+  { name: "Postman", category: "Tools", icon: postmanImg },
+  { name: "VS Code", category: "Tools", icon: vscodeImg },
+  { name: "AWS", category: "Tools", icon: awsImg },
+  { name: "Netlify", category: "Tools", icon: netlifyImg },
+  { name: "Tailwind CSS", category: "Frontend", icon: tailwindImg },
+  { name: "Framer Motion", category: "Frontend", icon: framerImg },
+  { name: "MySQL", category: "Backend", icon: mysqlImg },
+  { name: "Problem Solving", category: "Soft Skills", icon: solvingImg },
+  { name: "Team Work", category: "Soft Skills", icon: teamImg },
+  { name: "Communication", category: "Soft Skills", icon: communicationImg },
+  { name: "Quick Learner", category: "Soft Skills", icon: learningImg },
 ];
 
 export default function SkillGrid() {
@@ -54,7 +98,7 @@ export default function SkillGrid() {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 xl:grid-cols-6 gap-6 w-full">
           {filteredSkills.map((skill, index) => (
             <div
               key={`${skill.name}-${index}`}
