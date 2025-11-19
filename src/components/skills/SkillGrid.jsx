@@ -1,19 +1,18 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 // Import images
 import reactImg from "../../assets/react.png";
-import jsImg from "../../assets/javascript.png";
+import jsImg from "../../assets/js.svg";
 import mongoImg from "../../assets/mongodb.svg";
-import htmlImg from "../../assets/html.png";
-import cssImg from "../../assets/css.png";
-import bootstrapImg from "../../assets/bootstrap.png";
-import nodeImg from "../../assets/node.png";
-import pythonImg from "../../assets/python.png";
+import htmlImg from "../../assets/html.svg";
+import cssImg from "../../assets/css.svg";
+import bootstrapImg from "../../assets/bootstrap.svg";
+import nodeImg from "../../assets/node.svg";
+import pythonImg from "../../assets/python.svg";
 import laravelImg from "../../assets/laravel.png";
-import gitImg from "../../assets/git.png";
-import githubImg from "../../assets/github.png";
-
-
+import gitImg from "../../assets/git.svg";
+import githubImg from "../../assets/github.svg";
 import postmanImg from "../../assets/postman.svg";
 import vscodeImg from "../../assets/vscode.svg";
 import awsImg from "../../assets/aws.svg";
@@ -22,12 +21,9 @@ import solvingImg from "../../assets/solving.svg";
 import teamImg from "../../assets/team.svg";
 import communicationImg from "../../assets/communication.svg";
 import learningImg from "../../assets/learning.svg";
-
-
-
-import tailwindImg from "../../assets/tailwind.png";
+import tailwindImg from "../../assets/tailwind.svg";
 import framerImg from "../../assets/framer.png";
-import mysqlImg from "../../assets/mysql.png";
+import mysqlImg from "../../assets/mysql.svg";
 
 const tabs = ["All", "Frontend", "Backend", "Tools", "Soft Skills"];
 
@@ -65,8 +61,18 @@ export default function SkillGrid() {
       : skills.filter((skill) => skill.category === active);
 
   return (
-    <section className="py-16 min-h-[600px] bg-gradient-to-r from-purple-500 to-blue-600 dark:bg-[#071D3B] dark:bg-none" id="skills">
-      <div className="container mx-auto px-6">
+    <section
+      className="py-16 min-h-[600px] bg-gradient-to-r from-purple-500 to-blue-600 dark:bg-[#071D3B] dark:bg-none"
+      id="skills"
+    >
+      {/* SECTION ANIMATION HERE */}
+      <motion.div
+        className="container mx-auto px-6"
+        initial={{ opacity: 0, y: 30 }}   // slight slide up
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }} // faster
+  viewport={{ once: true, amount: 0.2 }}
+      >
         {/* Header Section */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-4xl text-white font-bold mb-4">
@@ -76,9 +82,11 @@ export default function SkillGrid() {
             </span>
           </h2>
           <p className="text-[hsl(261,15%,70%)] text-lg max-w-2xl mx-auto">
-            I've worked with a range of technologies in the web development world, from back-end to front-end and project management.
+            I've worked with a range of technologies in the web development
+            world, from back-end to front-end and project management.
           </p>
         </div>
+
         {/* Tabs */}
         <div className="flex flex-wrap gap-3 justify-center mb-12">
           {tabs.map((tab) => (
@@ -98,7 +106,7 @@ export default function SkillGrid() {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 xl:grid-cols-6 gap-6 w-full">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 xl:grid-cols-6 gap-6 w-full">
           {filteredSkills.map((skill, index) => (
             <div
               key={`${skill.name}-${index}`}
@@ -132,8 +140,7 @@ export default function SkillGrid() {
             </div>
           ))}
         </div>
-
-      </div>
+      </motion.div>
     </section>
   );
 }
