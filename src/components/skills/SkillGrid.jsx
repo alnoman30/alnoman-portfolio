@@ -21,7 +21,7 @@ export default function SkillGrid() {
       : skills.filter((skill) => skill.category === active);
 
   return (
-    <section className="py-16 min-h-[600px] bg-[#071D3B]" id="skills">
+    <section className="py-16 min-h-[600px] bg-gradient-to-r from-purple-500 to-blue-600 dark:bg-[#071D3B] dark:bg-none" id="skills">
       <div className="container mx-auto px-6">
         {/* Header Section */}
         <div className="text-center max-w-2xl mx-auto mb-12">

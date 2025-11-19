@@ -1,7 +1,7 @@
 import React from "react";
 import { experiences, educations, activities } from "../../utils/data";
 
-export default function Experience({ className = "bg-[#071D3B] transition-all duration-500" }) {
+export default function Experience({ className = "bg-gradient-to-r from-purple-500 to-blue-600 dark:bg-[#071D3B] dark:bg-none transition-all duration-500" }) {
   return (
     <section
       className={`w-full py-12 ${className}`} // full width background
