@@ -8,6 +8,19 @@ import { SiTask } from "react-icons/si";
 export default function Experience({
   className = "bg-gradient-to-r from-purple-500 to-blue-600 dark:bg-[#071D3B] dark:bg-none transition-all duration-500",
 }) {
+  // State for CGPA visibility
+  const [cgpaVisible, setCgpaVisible] = useState(
+    educations.reduce((acc, edu) => {
+      acc[edu.id] = false;
+      return acc;
+    }, {})
+  );
+
+  // Toggle CGPA visibility
+  const toggleCgpa = (id) => {
+    setCgpaVisible((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
   return (
     <section className={`w-full py-12 ${className}`} id="experience">
       <div className="container mx-auto px-6">
@@ -24,7 +37,6 @@ export default function Experience({
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-
           {/* Experience Column */}
           <div className="flex flex-col">
             <div className="flex items-center mb-4">
@@ -61,32 +73,28 @@ export default function Experience({
             </div>
             <div className="relative pl-8">
               <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-gray-300" />
-              {educations.map((edu) => {
-                const [showCgpa, setShowCgpa] = useState(false);
-                return (
-                  <div key={edu.id} className="relative mb-8">
-                    <span className="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-red-300 ring-4 ring-purple-200" />
-                    <div className="pl-6">
-                      <div className="flex items-center justify-between">
-                        <h4 className="text-lg font-semibold text-white">{edu.degree}</h4>
-                        <span
-                          onClick={() => setShowCgpa(!showCgpa)}
-                          className={`text-xs text-black bg-purple-200 px-2 py-0.5 rounded-md blur-sm hover:blur-none transition-all duration-300 cursor-pointer ${
-                            showCgpa ? "blur-none" : ""
-                          }`}
-                        >
-                          {edu.cgpa}
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between mt-1">
-                        <span className="text-sm text-black dark:text-violet-700 font-bold">{edu.school}</span>
-                        <span className="text-xs bg-purple-200 text-gray-700 px-2 py-0.5 rounded-md">{edu.period}</span>
-                      </div>
-                      <p className="mt-2 text-sm dark:text-[hsl(261,15%,70%)]">{edu.details}</p>
+              {educations.map((edu) => (
+                <div key={edu.id} className="relative mb-8">
+                  <span className="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-red-300 ring-4 ring-purple-200" />
+                  <div className="pl-6">
+                    <div className="flex items-center justify-between">
+                      <h4 className="text-lg font-semibold text-white">{edu.degree}</h4>
+                      <span
+                        onClick={() => toggleCgpa(edu.id)}
+                        className={`text-xs text-black bg-purple-200 px-2 py-0.5 rounded-md cursor-pointer transition-all duration-300 
+                        hover:blur-none ${cgpaVisible[edu.id] ? "blur-none" : "blur-sm"}`}
+                      >
+                        {edu.cgpa}
+                      </span>
                     </div>
+                    <div className="flex items-center justify-between mt-1">
+                      <span className="text-sm text-black dark:text-violet-700 font-bold">{edu.school}</span>
+                      <span className="text-xs bg-purple-200 text-gray-700 px-2 py-0.5 rounded-md">{edu.period}</span>
+                    </div>
+                    <p className="mt-2 text-sm dark:text-[hsl(261,15%,70%)]">{edu.details}</p>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
           </div>
 
@@ -114,7 +122,6 @@ export default function Experience({
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>
