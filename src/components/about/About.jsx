@@ -2,11 +2,19 @@ import React from "react";
 import { motion } from "framer-motion";
 
 import nomanImg from "../../assets/noman2.png";
+import { FaLocationDot } from "react-icons/fa6";
+import { IoMdMailUnread } from "react-icons/io";
+
+// Swiper Imports
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination, Autoplay } from "swiper/modules";
 
 export default function About() {
   return (
-    <section className="relative w-full py-20 bg-gradient-to-br from-[#F4FAFF] to-[#FFF7F4]" id="about">
-              {/* Header Section */}
+    <section className="relative w-full py-20" id="about">
+      {/* Header Section */}
       <div className="text-center max-w-2xl mx-auto mb-30 md:mb-12">
         <h2 className="text-4xl text-gray-700 dark:text-[hsl(0,0%,96%)] font-bold mb-4">
           About{" "}
@@ -15,6 +23,7 @@ export default function About() {
           </span>
         </h2>
       </div>
+
       {/* Top Right Floating Circle */}
       <motion.div
         className="absolute top-10 right-20"
@@ -42,7 +51,7 @@ export default function About() {
 
       {/* Bottom Left Floating Square */}
       <motion.div
-        className="absolute bottom-14 left-10"
+        className="absolute bottom-14 left-10 z-50"
         animate={{
           y: [0, 15, 0],
           rotate: [0, -6, 6, 0],
@@ -68,13 +77,12 @@ export default function About() {
       </motion.div>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-6">
-
-        {/* Image Section */}
+        {/* Image Section with Swiper */}
         <div className="relative">
 
           {/* Floating Cyan Square */}
           <motion.div
-            className="absolute -top-6 -right-6 w-16 h-16 bg-[#28D8D7] rounded-xl opacity-90"
+            className="absolute -top-6 -right-6 w-16 h-16 bg-[#28D8D7] rounded-xl opacity-90 z-50"
             animate={{
               y: [0, -10, 0],
               rotate: [0, 3, -3, 0],
@@ -86,17 +94,45 @@ export default function About() {
             }}
           />
 
-          <div className="rounded-3xl overflow-hidden shadow-xl border border-gray-100">
-            <img
-              src={nomanImg}
-              alt="profile"
-              className="w-full h-full object-cover"
-            />
-          </div>
+          {/* Swiper Image Carousel */}
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 2500 }}
+            loop={true}
+            className="rounded-3xl overflow-hidden shadow-xl border border-gray-100"
+          >
+            <SwiperSlide>
+              <img
+                src={nomanImg}
+                alt="profile"
+                className="w-full h-full object-cover"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={nomanImg}
+                alt="profile"
+                className="w-full h-full object-cover"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={nomanImg}
+                alt="profile"
+                className="w-full h-full object-cover"
+              />
+            </SwiperSlide>
+
+            {/* Add more slides if you want */}
+            {/* <SwiperSlide>
+              <img src={anotherImg} alt="profile 2" className="w-full h-full object-cover" />
+            </SwiperSlide> */}
+          </Swiper>
 
           {/* Floating Orange Circle */}
           <motion.div
-            className="absolute -bottom-6 -left-6 w-20 h-20 bg-[#F4A28C] rounded-full opacity-90"
+            className="absolute -bottom-6 -left-6 w-20 h-20 bg-[#F4A28C] rounded-full opacity-90 z-50"
             animate={{
               y: [0, 12, 0],
               rotate: [0, -4, 4, 0],
@@ -111,42 +147,50 @@ export default function About() {
 
         {/* Text Content */}
         <div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">John Doe</h1>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+            Abdullah Al Noman
+          </h1>
 
           <p className="text-[#00B7C3] font-semibold mb-6">
-            Creative Designer & Developer
+            Frontend React JS Developer
           </p>
 
-          <p className="text-gray-600 leading-relaxed mb-6">
+          <p className="text-gray-600 dark:text-[#F7F7F7] leading-relaxed mb-6">
             Passionate about creating beautiful and functional digital
             experiences. With over 5 years of experience in design and
             development, I bring ideas to life through clean code and thoughtful
             design.
           </p>
 
-          <p className="text-gray-600 leading-relaxed mb-8">
+          <p className="text-gray-600 dark:text-[#F7F7F7] leading-relaxed mb-8">
             I specialize in building modern web applications that are visually
-            stunning and offer exceptional user experiences. Each project is
-            a chance to push creative boundaries.
+            stunning and offer exceptional user experiences. Each project is a
+            chance to push creative boundaries.
           </p>
 
           {/* Contact Info */}
           <div className="space-y-4 mb-6">
             <div className="flex items-start gap-3">
-              <span className="text-[#00B7C3] text-xl">📍</span>
-              <p className="text-gray-700">
-                123 Creative Street, Design City, DC 12345
+              <span className="text-[#00B7C3] text-xl">
+                <FaLocationDot />
+              </span>
+              <p className="text-gray-700 dark:text-[#F7F7F7]">
+                8/32 Ashrafabad main road, Lalbagh, Dhaka-1211
               </p>
             </div>
 
             <div className="flex items-start gap-3">
-              <span className="text-[#00B7C3] text-xl">✉️</span>
-              <p className="text-gray-700">hello@johndoe.com</p>
+              <span className="text-[#00B7C3] text-xl">
+                <IoMdMailUnread />
+              </span>
+              <p className="text-gray-700 dark:text-[#F7F7F7]">
+                alnomaan30@gmail.com
+              </p>
             </div>
           </div>
 
-          <button className="bg-[#00C3D9] hover:bg-[#00A5BA] text-white px-6 py-3 rounded-full shadow-md transition">
-            Get In Touch
+          <button className="bg-[#00C3D9] hover:bg-[#00A5BA] text-white px-6 py-3 rounded-full shadow-md transition cursor-pointer">
+            Hire Me
           </button>
         </div>
       </div>

@@ -1,13 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import memoji from "../../assets/memoji.svg";
+import memoji from "../../assets/memoji.png";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden" id="home">
       {/* Soft pastel gradient blurred background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-300 via-white to-violet-300 dark:bg-[#071D3B] blur-3xl opacity-40 -z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-300 via-white to-violet-300 dark:bg-[#071D3B] dark:bg-none blur-3xl opacity-40 -z-10"></div>
 
       {/* Floating SVG Circles */}
       <motion.div
@@ -50,12 +50,14 @@ const Hero = () => {
         </svg>
       </motion.div>
 
-      {/* Avatar */}
-      <img
-        src={memoji}
-        alt="avatar"
-        className="w-24 h-24 rounded-full mb-6 relative z-10"
-      />
+<div className="w-32 h-32 p-4 rounded-full bg-violet-100 flex items-center justify-center mb-5">
+  <img
+    src={memoji}
+    alt="avatar"
+    className="w-24 h-24 rounded-full relative z-10"
+  />
+</div>
+
 
       {/* Welcome Text */}
       <motion.span
@@ -93,7 +95,7 @@ const Hero = () => {
         <motion.button whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   type="submit"
-                  className="bg-white text-black font-semibold px-6 py-3 rounded-md hover:bg-gray-200 transition-colors">
+                  className="bg-white text-black font-semibold px-6 py-3 rounded-md hover:bg-gray-200 transition-colors cursor-pointer">
           View Project
         </motion.button>
       </div>
