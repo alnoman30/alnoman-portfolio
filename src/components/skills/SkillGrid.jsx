@@ -77,7 +77,7 @@ export default function SkillGrid() {
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-4xl text-white font-bold mb-4">
             My{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-blue-500 text-transparent bg-clip-text inline-block">
+            <span className="bg-cyan-500 text-transparent bg-clip-text inline-block">
               Skills
             </span>
           </h2>

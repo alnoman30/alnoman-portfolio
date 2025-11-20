@@ -1,7 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import nomanImg from "../../assets/noman2.png";
+import noman1Img from "../../assets/noman.png";
+import noman2Img from "../../assets/noman2.png";
+import noman3Img from "../../assets/noman3.png";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMailUnread } from "react-icons/io";
 
@@ -100,35 +102,31 @@ export default function About() {
             pagination={{ clickable: true }}
             autoplay={{ delay: 2500 }}
             loop={true}
-            className="rounded-3xl overflow-hidden shadow-xl border border-gray-100"
+            className="rounded-3xl overflow-hidden shadow-xl border border-gray-100 h-[400px] md:h-[600px]"
           >
             <SwiperSlide>
               <img
-                src={nomanImg}
+                src={noman2Img}
                 alt="profile"
                 className="w-full h-full object-cover"
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                src={nomanImg}
+                src={noman1Img}
                 alt="profile"
                 className="w-full h-full object-cover"
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                src={nomanImg}
+                src={noman3Img}
                 alt="profile"
                 className="w-full h-full object-cover"
               />
             </SwiperSlide>
-
-            {/* Add more slides if you want */}
-            {/* <SwiperSlide>
-              <img src={anotherImg} alt="profile 2" className="w-full h-full object-cover" />
-            </SwiperSlide> */}
           </Swiper>
+
 
           {/* Floating Orange Circle */}
           <motion.div
