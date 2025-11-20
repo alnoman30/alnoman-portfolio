@@ -189,9 +189,12 @@ export default function About() {
             </div>
           </div>
 
-          <button className="bg-[#00C3D9] hover:bg-[#00A5BA] text-white px-6 py-3 rounded-full shadow-md transition cursor-pointer">
+          <motion.button whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            type="submit"
+            className="bg-[#00C3D9] hover:bg-[#00A5BA] text-white px-6 py-3 rounded-full shadow-md transition cursor-pointer">
             Hire Me
-          </button>
+          </motion.button>
         </div>
       </div>
     </section>
