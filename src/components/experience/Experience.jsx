@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { experiences, educations, activities } from "../../utils/data";
 
 import { MdOutlineMapsHomeWork } from "react-icons/md";
@@ -24,6 +24,8 @@ export default function Experience({
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
+
+          {/* Experience Column */}
           <div className="flex flex-col">
             <div className="flex items-center mb-4">
               <div className="bg-violet-600 w-10 h-10 flex items-center justify-center rounded-full mr-3 text-white text-xl">
@@ -49,6 +51,7 @@ export default function Experience({
             </div>
           </div>
 
+          {/* Education Column */}
           <div className="flex flex-col">
             <div className="flex items-center mb-4">
               <div className="bg-cyan-500 w-10 h-10 flex items-center justify-center rounded-full mr-3 text-white text-xl">
@@ -58,25 +61,36 @@ export default function Experience({
             </div>
             <div className="relative pl-8">
               <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-gray-300" />
-              {educations.map((edu) => (
-                <div key={edu.id} className="relative mb-8">
-                  <span className="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-red-300 ring-4 ring-purple-200" />
-                  <div className="pl-6">
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-lg font-semibold text-white">{edu.degree}</h4>
-                      <span className="text-xs text-black bg-purple-200 px-2 py-0.5 rounded-md blur-sm hover:blur-none transition-all duration-300 cursor-pointer">{edu.cgpa}</span>
+              {educations.map((edu) => {
+                const [showCgpa, setShowCgpa] = useState(false);
+                return (
+                  <div key={edu.id} className="relative mb-8">
+                    <span className="absolute -left-1.5 top-1 w-3 h-3 rounded-full bg-red-300 ring-4 ring-purple-200" />
+                    <div className="pl-6">
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-lg font-semibold text-white">{edu.degree}</h4>
+                        <span
+                          onClick={() => setShowCgpa(!showCgpa)}
+                          className={`text-xs text-black bg-purple-200 px-2 py-0.5 rounded-md blur-sm hover:blur-none transition-all duration-300 cursor-pointer ${
+                            showCgpa ? "blur-none" : ""
+                          }`}
+                        >
+                          {edu.cgpa}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between mt-1">
+                        <span className="text-sm text-black dark:text-violet-700 font-bold">{edu.school}</span>
+                        <span className="text-xs bg-purple-200 text-gray-700 px-2 py-0.5 rounded-md">{edu.period}</span>
+                      </div>
+                      <p className="mt-2 text-sm dark:text-[hsl(261,15%,70%)]">{edu.details}</p>
                     </div>
-                    <div className="flex items-center justify-between mt-1">
-                      <span className="text-sm text-black dark:text-violet-700 font-bold">{edu.school}</span>
-                      <span className="text-xs bg-purple-200 text-gray-700 px-2 py-0.5 rounded-md">{edu.period}</span>
-                    </div>
-                    <p className="mt-2 text-sm dark:text-[hsl(261,15%,70%)]">{edu.details}</p>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
+          {/* Curricular Activities Column */}
           <div className="flex flex-col">
             <div className="flex items-center mb-4">
               <div className="bg-blue-500 w-10 h-10 flex items-center justify-center rounded-full mr-3 text-white text-xl">
