@@ -16,13 +16,13 @@ const projects = [
   },
   {
     id: 2,
-    category: "Restaurant",
-    title: "RainyRoof Restaurant & Cafe",
+    category: "Food Delivery",
+    title: "Foodie - Food Delivery App",
     description:
       "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
     image: project2,
-    github: "https://github.com/example/project1",
-    preview: "https://example.com/project1",
+    github: "https://github.com/alnoman30/Foodie-App-ReactJS",
+    preview: "https://alnoman-foodie.vercel.app/",
   },
   {
     id: 3,
