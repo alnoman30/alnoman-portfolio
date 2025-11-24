@@ -1,7 +1,7 @@
 // Sample data array
 import project1 from "../assets/project1.png";
 import project2 from "../assets/project2.png";
-
+import project3 from "../assets/project3.png";
 
 const projects = [
   {
@@ -26,13 +26,13 @@ const projects = [
   },
   {
     id: 3,
-    category: "Restaurant",
-    title: "RainyRoof Restaurant & Cafe",
+    category: "Quiz Application",
+    title: "React Quiz Application",
     description:
       "Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.",
-    image: project2,
-    github: "https://github.com/example/project1",
-    preview: "https://example.com/project1",
+    image: project3,
+    github: "https://github.com/alnoman30/ReactJS-Quiz-App",
+    preview: "https://alnoman-quiz.vercel.app/",
   },
 ];
 
