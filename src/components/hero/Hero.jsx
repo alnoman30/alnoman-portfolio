@@ -74,7 +74,7 @@ const Hero = () => {
         Hi, I'm <span className="bg-gradient-to-r from-purple-600 to-blue-500 text-transparent bg-clip-text inline-block">Noman</span>
       </h1>
       <h3 className="text-xl sm:text-2xl font-medium mb-4 relative z-10 text-gray-700 dark:text-gray-300">
-        FullStack Developer specializing in MERN stack
+        Frontend Developer specializing in React JS
       </h3>
 
       {/* Description */}

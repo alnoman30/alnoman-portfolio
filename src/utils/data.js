@@ -17,7 +17,7 @@ export const educations = [
     degree: "B.Sc. in Computer Science & Engineering",
     school: "Daffodil Internation University",
     period: "2020 - 2024",
-    cgpa: "CGPA: 3.11",
+    cgpa: "CGPA: 3.18",
     details:
       "Completed a comprehensive program covering core areas of computer science, including programming, software development, data structures, algorithms, and database systems. Engaged in multiple academic and practical projects, strengthening problem-solving and analytical skills.",
   },
@@ -26,7 +26,7 @@ export const educations = [
     degree: "Higher Secondary Certificate (HSC)",
     school: "Ideal College,Dhanmondi",
     period: "2018 - 2019",
-    cgpa: "CGPA: 3.33",
+    cgpa: "CGPA: 4.33",
     details: "Studied Science group with strong maths background.",
   },
   {
