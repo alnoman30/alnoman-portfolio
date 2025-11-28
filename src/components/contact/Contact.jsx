@@ -1,18 +1,55 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 import { RiGithubLine } from "react-icons/ri";
 import { FiLinkedin } from "react-icons/fi";
 import { FaRegEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_tj7q9it", // Your SERVICE_ID
+        "template_tjr0dmz", // Your TEMPLATE_ID
+        form.current,
+        "aYS8w_wLw7NG5D00F" // Your PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          console.log("SUCCESS!", result.text);
+          Swal.fire({
+            icon: "success",
+            title: "Message Sent!",
+            text: "Your message has been sent successfully.",
+            confirmButtonColor: "#6366F1",
+          });
+          e.target.reset();
+        },
+        (error) => {
+          console.error("FAILED...", error.text);
+          Swal.fire({
+            icon: "error",
+            title: "Oops!",
+            text: "Failed to send message. Please try again.",
+            confirmButtonColor: "#F43F5E",
+          });
+        }
+      );
+  };
+
   return (
     <motion.section
       className="container mx-auto py-20"
       id="contact"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }} // <-- delay added
+      transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
       viewport={{ once: true }}
     >
       {/* Header Section */}
@@ -37,13 +74,12 @@ const Contact = () => {
 
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="bg-white dark:bg-violet-400 rounded-2xl shadow-md p-8 w-[90%]">
-              <h3 className="text-xl font-semibold text-gray-800  mb-3">
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
                 Contact Information
               </h3>
               <p className="text-gray-600 mb-6 dark:text-white">
                 Feel free to reach out for opportunities, collaborations, or
-                just to say hi! I'm always open to discussing new projects and
-                ideas.
+                just to say hi!
               </p>
 
               {/* Contact items */}
@@ -129,11 +165,12 @@ const Contact = () => {
 
         {/* Right Side - Contact Form */}
         <div className="bg-white dark:bg-violet-400 rounded-2xl shadow-md p-10 mt-20 md:mt-0">
-          <h3 className="text-2xl font-semibold text-gray-800  mb-6">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-6">
             Send a Message
           </h3>
 
-          <form className="space-y-6">
+          {/* EmailJS FORM */}
+          <form ref={form} onSubmit={sendEmail} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm text-gray-600 dark:text-white mb-1">
@@ -141,7 +178,9 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
+                  name="user_name"
                   placeholder="John Doe"
+                  required
                   className="w-full border-b-2 border-gray-300 focus:border-purple-600 outline-none py-2 dark:text-white"
                 />
               </div>
@@ -151,7 +190,9 @@ const Contact = () => {
                 </label>
                 <input
                   type="email"
+                  name="user_email"
                   placeholder="hello@example.com"
+                  required
                   className="w-full border-b-2 border-gray-300 focus:border-purple-600 outline-none py-2 dark:text-white"
                 />
               </div>
@@ -163,7 +204,9 @@ const Contact = () => {
               </label>
               <input
                 type="text"
+                name="subject"
                 placeholder="I want to collaborate with you"
+                required
                 className="w-full border-b-2 border-gray-300 focus:border-purple-600 outline-none py-2 dark:text-white"
               />
             </div>
@@ -174,16 +217,18 @@ const Contact = () => {
               </label>
               <textarea
                 rows="4"
+                name="message"
                 placeholder="Write your message here..."
+                required
                 className="w-full border-b-2 border-gray-300 focus:border-purple-600 outline-none py-2 resize-none dark:text-white"
               ></textarea>
             </div>
 
             <motion.button
-            whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               type="submit"
-              className="bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 cursor-pointer hover:to-blue-700 text-white font-semibold px-6 py-3 rounded-md transition-all"
+              className="bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 text-white font-semibold px-6 py-3 rounded-md transition-all"
             >
               Send Message
             </motion.button>

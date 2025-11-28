@@ -10,13 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.1.17",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^12.23.24",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.9.5",
     "react-scroll": "^1.9.3",
+    "sweetalert2": "^11.26.3",
     "swiper": "^12.0.3",
     "tailwindcss": "^4.1.17"
   },
