@@ -1,28 +1,28 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 import { RiGithubLine } from "react-icons/ri";
 import { FiLinkedin } from "react-icons/fi";
 import { FaRegEnvelope } from "react-icons/fa";
-import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
+import gsap from "gsap";
 
 const Contact = () => {
   const form = useRef();
+  const buttonRef = useRef(null);
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
       .sendForm(
-        "service_tj7q9it", // Your SERVICE_ID
-        "template_tjr0dmz", // Your TEMPLATE_ID
+        "service_tj7q9it",
+        "template_tjr0dmz",
         form.current,
-        "aYS8w_wLw7NG5D00F" // Your PUBLIC_KEY
+        "aYS8w_wLw7NG5D00F"
       )
       .then(
         (result) => {
-          console.log("SUCCESS!", result.text);
           Swal.fire({
             icon: "success",
             title: "Message Sent!",
@@ -32,7 +32,6 @@ const Contact = () => {
           e.target.reset();
         },
         (error) => {
-          console.error("FAILED...", error.text);
           Swal.fire({
             icon: "error",
             title: "Oops!",
@@ -43,17 +42,33 @@ const Contact = () => {
       );
   };
 
+  // GSAP button hover animation
+  useEffect(() => {
+    const btn = buttonRef.current;
+    if (btn) {
+      const hoverIn = () => gsap.to(btn, { scale: 1.05, duration: 0.2 });
+      const hoverOut = () => gsap.to(btn, { scale: 1, duration: 0.2 });
+      const mouseDown = () => gsap.to(btn, { scale: 0.95, duration: 0.1 });
+      const mouseUp = () => gsap.to(btn, { scale: 1.05, duration: 0.1 });
+
+      btn.addEventListener("mouseenter", hoverIn);
+      btn.addEventListener("mouseleave", hoverOut);
+      btn.addEventListener("mousedown", mouseDown);
+      btn.addEventListener("mouseup", mouseUp);
+
+      return () => {
+        btn.removeEventListener("mouseenter", hoverIn);
+        btn.removeEventListener("mouseleave", hoverOut);
+        btn.removeEventListener("mousedown", mouseDown);
+        btn.removeEventListener("mouseup", mouseUp);
+      };
+    }
+  }, []);
+
   return (
-    <motion.section
-      className="container mx-auto py-20"
-      id="contact"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
-      viewport={{ once: true }}
-    >
+    <section className="container mx-auto py-20" id="contact">
       {/* Header Section */}
-      <div className="text-center max-w-2xl mx-auto mb-30 md:mb-12">
+      <div className="text-center max-w-2xl mx-auto mb-12">
         <h2 className="text-4xl text-gray-700 dark:text-[hsl(0,0%,96%)] font-bold mb-4">
           Get In{" "}
           <span className="bg-gradient-to-r from-purple-600 to-blue-500 text-transparent bg-clip-text inline-block">
@@ -132,18 +147,12 @@ const Contact = () => {
               {/* Social Links */}
               <ul className="flex justify-start gap-6 mt-8 text-2xl text-gray-600 dark:text-gray-300">
                 {[
-                  {
-                    icon: <RiGithubLine />,
-                    href: "https://github.com/alnoman30",
-                  },
+                  { icon: <RiGithubLine />, href: "https://github.com/alnoman30" },
                   {
                     icon: <FiLinkedin />,
                     href: "https://www.linkedin.com/in/abdullah-al-noman30/",
                   },
-                  {
-                    icon: <FaRegEnvelope />,
-                    href: "mailto:alnomaan30@gmail.com",
-                  },
+                  { icon: <FaRegEnvelope />, href: "mailto:alnomaan30@gmail.com" },
                 ].map((social, i) => (
                   <li
                     key={i}
@@ -224,18 +233,18 @@ const Contact = () => {
               ></textarea>
             </div>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            {/* Button with GSAP */}
+            <button
+              ref={buttonRef}
               type="submit"
               className="bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 text-white font-semibold px-6 py-3 rounded-md transition-all"
             >
               Send Message
-            </motion.button>
+            </button>
           </form>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

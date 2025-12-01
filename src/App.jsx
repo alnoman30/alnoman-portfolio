@@ -1,7 +1,7 @@
 
 import './App.css'
 import About from './components/about/About'
-import AnimatedCursor from './components/animatedCursor/AnimatedCursor'
+import NebulaCursor from './components/animatedCursor/AnimatedCursor'
 import Contact from './components/contact/Contact'
 import Experience from './components/experience/Experience'
 import Footer from './components/footer/Footer'
@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className='relative'>
-      <AnimatedCursor/>
+      <NebulaCursor/>
       <Navbar/>
       <Hero/>
       <About/>

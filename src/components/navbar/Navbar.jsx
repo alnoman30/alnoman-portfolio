@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-scroll";
 import { FiMoon, FiMenu, FiX } from "react-icons/fi";
 import { GoSun } from "react-icons/go";
-import { motion } from "framer-motion";
+import gsap from "gsap";
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Refs for buttons
+  const desktopResumeBtnRef = useRef(null);
+  const mobileResumeBtnRef = useRef(null);
 
   useEffect(() => {
     if (darkMode) {
@@ -26,6 +30,31 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // GSAP button hover & click animations
+  useEffect(() => {
+    const buttons = [desktopResumeBtnRef.current, mobileResumeBtnRef.current];
+
+    buttons.forEach((btn) => {
+      if (!btn) return;
+
+      // Hover
+      btn.addEventListener("mouseenter", () => {
+        gsap.to(btn, { scale: 1.05, duration: 0.2 });
+      });
+      btn.addEventListener("mouseleave", () => {
+        gsap.to(btn, { scale: 1, duration: 0.2 });
+      });
+
+      // Click
+      btn.addEventListener("mousedown", () => {
+        gsap.to(btn, { scale: 0.95, duration: 0.1 });
+      });
+      btn.addEventListener("mouseup", () => {
+        gsap.to(btn, { scale: 1.05, duration: 0.1 });
+      });
+    });
+  }, [menuOpen]);
 
   const menuItems = [
     { id: "home", label: "Home" },
@@ -76,14 +105,13 @@ const Navbar = () => {
             {darkMode ? <GoSun size={20} /> : <FiMoon size={20} />}
           </button>
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <button
+            ref={desktopResumeBtnRef}
             type="submit"
             className="bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 text-white font-semibold px-4 py-2 rounded-md transition-all"
           >
             Resume
-          </motion.button>
+          </button>
         </div>
 
         <div className="md:hidden flex items-center gap-4">
@@ -124,14 +152,13 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <button
+            ref={mobileResumeBtnRef}
             type="submit"
             className="bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 text-white font-semibold px-4 py-2 rounded-md transition-all"
           >
             Resume
-          </motion.button>
+          </button>
         </div>
       )}
     </nav>

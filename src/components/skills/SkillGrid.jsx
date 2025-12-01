@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
 
 // Import images
 import reactImg from "../../assets/react.png";
@@ -22,11 +21,12 @@ import teamImg from "../../assets/team.svg";
 import communicationImg from "../../assets/communication.svg";
 import learningImg from "../../assets/learning.svg";
 import tailwindImg from "../../assets/tailwind.svg";
-import framerImg from "../../assets/framer.png";
 import mysqlImg from "../../assets/mysql.svg";
 
+// Tabs
 const tabs = ["All", "Frontend", "Backend", "Tools", "Soft Skills"];
 
+// Skills (Framer Motion removed)
 const skills = [
   { name: "React", category: "Frontend", icon: reactImg },
   { name: "Javascript", category: "Frontend", icon: jsImg },
@@ -37,15 +37,16 @@ const skills = [
   { name: "CSS", category: "Frontend", icon: cssImg },
   { name: "Bootstrap", category: "Frontend", icon: bootstrapImg },
   { name: "Laravel", category: "Backend", icon: laravelImg },
+  { name: "Tailwind CSS", category: "Frontend", icon: tailwindImg },
+  { name: "MySQL", category: "Backend", icon: mysqlImg },
+
   { name: "Git", category: "Tools", icon: gitImg },
   { name: "Github", category: "Tools", icon: githubImg },
   { name: "Postman", category: "Tools", icon: postmanImg },
   { name: "VS Code", category: "Tools", icon: vscodeImg },
   { name: "AWS", category: "Tools", icon: awsImg },
   { name: "Netlify", category: "Tools", icon: netlifyImg },
-  { name: "Tailwind CSS", category: "Frontend", icon: tailwindImg },
-  { name: "Framer Motion", category: "Frontend", icon: framerImg },
-  { name: "MySQL", category: "Backend", icon: mysqlImg },
+
   { name: "Problem Solving", category: "Soft Skills", icon: solvingImg },
   { name: "Team Work", category: "Soft Skills", icon: teamImg },
   { name: "Communication", category: "Soft Skills", icon: communicationImg },
@@ -54,6 +55,7 @@ const skills = [
 
 export default function SkillGrid() {
   const [active, setActive] = useState("All");
+  const cardsRef = useRef([]);
 
   const filteredSkills =
     active === "All"
@@ -65,14 +67,8 @@ export default function SkillGrid() {
       className="py-16 min-h-[600px] bg-gradient-to-r from-purple-500 to-blue-600 dark:bg-[#071D3B] dark:bg-none"
       id="skills"
     >
-      {/* SECTION ANIMATION HERE */}
-      <motion.div
-        className="container mx-auto px-6"
-        initial={{ opacity: 0, y: 30 }}   // slight slide up
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }} // faster
-  viewport={{ once: true, amount: 0.2 }}
-      >
+      <div className="container mx-auto px-6">
+
         {/* Header Section */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-4xl text-white font-bold mb-4">
@@ -110,11 +106,11 @@ export default function SkillGrid() {
           {filteredSkills.map((skill, index) => (
             <div
               key={`${skill.name}-${index}`}
+              ref={(el) => (cardsRef.current[index] = el)}
               className="
                 group relative overflow-hidden
                 rounded-xl p-8 flex flex-col items-center transition 
                 hover:scale-[1.05] hover:shadow-xl
-
                 bg-white/10 backdrop-blur-lg 
                 border border-white/20 
                 shadow-[0_0_25px_-5px_rgba(255,255,255,0.2)]
@@ -125,7 +121,7 @@ export default function SkillGrid() {
                 className="
                   pointer-events-none absolute inset-0
                   bg-gradient-to-r from-transparent via-white/20 to-transparent
-                  translate-x-[-200%]
+                  -translate-x-[200%]
                   group-hover:translate-x-[200%]
                   transition-transform duration-1000 ease-out
                 "
@@ -140,7 +136,8 @@ export default function SkillGrid() {
             </div>
           ))}
         </div>
-      </motion.div>
+
+      </div>
     </section>
   );
 }

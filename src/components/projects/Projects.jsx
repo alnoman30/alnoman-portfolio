@@ -1,10 +1,48 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import projects from "../../utils/projects";
 import { FiGithub } from "react-icons/fi";
-import { motion } from "framer-motion";
 import { IoEyeOutline } from "react-icons/io5";
+import gsap from "gsap";
 
 const Projects = () => {
+  const btnRef = useRef(null);
+
+  useEffect(() => {
+    const btn = btnRef.current;
+
+    if (!btn) return;
+
+    // Hover animation
+    const handleMouseEnter = () => {
+      gsap.to(btn, { scale: 1.05, duration: 0.2, ease: "power2.out" });
+    };
+
+    const handleMouseLeave = () => {
+      gsap.to(btn, { scale: 1, duration: 0.2, ease: "power2.out" });
+    };
+
+    // Click (tap) animation
+    const handleMouseDown = () => {
+      gsap.to(btn, { scale: 0.95, duration: 0.1 });
+    };
+
+    const handleMouseUp = () => {
+      gsap.to(btn, { scale: 1.05, duration: 0.2 });
+    };
+
+    btn.addEventListener("mouseenter", handleMouseEnter);
+    btn.addEventListener("mouseleave", handleMouseLeave);
+    btn.addEventListener("mousedown", handleMouseDown);
+    btn.addEventListener("mouseup", handleMouseUp);
+
+    return () => {
+      btn.removeEventListener("mouseenter", handleMouseEnter);
+      btn.removeEventListener("mouseleave", handleMouseLeave);
+      btn.removeEventListener("mousedown", handleMouseDown);
+      btn.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, []);
+
   return (
     <section className="py-20 container mx-auto px-6" id="projects">
       {/* Header Section */}
@@ -20,6 +58,7 @@ const Projects = () => {
           the MERN stack and project management.
         </p>
       </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project) => (
           <div
@@ -38,38 +77,37 @@ const Projects = () => {
               <p className="text-xs text-gray-400 dark:text-black tracking-widest mb-2">
                 {project.category}
               </p>
-              <h3 className="text-lg font-semibold mb-2 dark:text-white">{project.title}</h3>
-              <p className="text-gray-600 text-sm mb-4">
-                {project.description}
-              </p>
+              <h3 className="text-lg font-semibold mb-2 dark:text-white">
+                {project.title}
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">{project.description}</p>
 
               {/* Buttons */}
-<div className="flex gap-3">
-  {/* GitHub Button */}
-  <a
-    href={project.github}
-    target="_blank"
-    className="flex items-center px-4 py-2 text-sm font-medium 
-               border border-violet-500 text-violet-500 rounded-lg 
-               hover:bg-violet-500 hover:text-white hover:border-violet-500 dark:text-black
-               transition"
-  >
-    <FiGithub className="mr-2" /> View Code
-  </a>
+              <div className="flex gap-3">
+                {/* GitHub Button */}
+                <a
+                  href={project.github}
+                  target="_blank"
+                  className="flex items-center px-4 py-2 text-sm font-medium 
+                  border border-violet-500 text-violet-500 rounded-lg 
+                  hover:bg-violet-500 hover:text-white hover:border-violet-500 dark:text-black
+                  transition"
+                >
+                  <FiGithub className="mr-2" /> View Code
+                </a>
 
-  {/* Preview Button */}
-  <a
-    href={project.preview}
-    target="_blank"
-    className="flex items-center px-4 py-2 text-sm font-medium 
-               bg-violet-500 text-white border border-violet-500 rounded-lg
-               hover:bg-transparent hover:text-violet-500 hover:border-violet-500
-               transition"
-  >
-    <IoEyeOutline className="mr-2" /> Preview
-  </a>
-</div>
-
+                {/* Preview Button */}
+                <a
+                  href={project.preview}
+                  target="_blank"
+                  className="flex items-center px-4 py-2 text-sm font-medium 
+                  bg-violet-500 text-white border border-violet-500 rounded-lg
+                  hover:bg-transparent hover:text-violet-500 hover:border-violet-500
+                  transition"
+                >
+                  <IoEyeOutline className="mr-2" /> Preview
+                </a>
+              </div>
             </div>
           </div>
         ))}
@@ -77,14 +115,13 @@ const Projects = () => {
 
       {/* More Project Button */}
       <div className="text-center mt-12">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          type="submit"
-          className="bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 cursor-pointer hover:to-blue-700 text-white font-semibold px-6 py-3 rounded-md transition-all"
+        <button
+          ref={btnRef}
+          type="button"
+          className="bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 cursor-pointer hover:to-blue-700 text-white font-semibold px-6 py-3 rounded-md transition-all inline-block"
         >
           More Projects
-        </motion.button>
+        </button>
       </div>
     </section>
   );
